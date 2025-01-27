@@ -1,3 +1,11 @@
+import Chart from "./components/chart";
+
 export default function Home() {
-  return <main>Placeholder content</main>;
+  console.log(`key: ${process.env.COINGECKO_API_KEY}`);
+
+  return (
+    <main>
+      <Chart />
+    </main>
+  );
 }
