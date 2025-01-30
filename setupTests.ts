@@ -5,6 +5,16 @@ import { store } from "./src/tests/test-utils";
 import "cross-fetch/polyfill";
 import { act } from "@testing-library/react";
 
+// Mock the ResizeObserver
+const ResizeObserverMock = jest.fn(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
+
+// Stub the global ResizeObserver
+global.ResizeObserver = ResizeObserverMock;
+
 beforeAll(() => {
   server.listen();
 });

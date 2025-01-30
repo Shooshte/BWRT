@@ -42,8 +42,6 @@ export const coingeckoApi = createApi({
         params: { ...rest },
       }),
       transformResponse: (response: HistoricalData) => {
-        console.log("transformResponse response: ", response);
-
         historicalDataSchema.parse(response);
         return response;
       },

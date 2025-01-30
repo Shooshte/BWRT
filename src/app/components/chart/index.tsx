@@ -6,14 +6,15 @@ import {
   usePingApiQuery,
 } from "../../../lib/features/chart/coingeckoApi";
 
+import Chart from "./chart";
 import Loader from "../loader";
 import styles from "./chart.module.css";
 
-export default function Chart() {
-  const { error: pingError, isFetching: fetchingPing } = usePingApiQuery(
+export default function ChartContainer() {
+  const { error: pingError, isLoading: fetchingPing } = usePingApiQuery(
     undefined,
     {
-      pollingInterval: 1000 * 60,
+      pollingInterval: 60 * 1000,
       refetchOnFocus: true,
       refetchOnMountOrArgChange: true,
       refetchOnReconnect: true,
@@ -45,6 +46,8 @@ export default function Chart() {
   ) : error ? (
     <div className={styles.error}>Unable to load coin data.</div>
   ) : (
-    <div>Chart</div>
+    <main className={styles.chartContainer}>
+      <Chart />
+    </main>
   );
 }

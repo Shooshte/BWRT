@@ -6,3 +6,9 @@
   justify-content: center;
   padding: 1rem;
 }
+
+.chartContainer {
+  height: calc(50vh - 2rem);
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
