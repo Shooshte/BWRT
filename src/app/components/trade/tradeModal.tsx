@@ -49,6 +49,14 @@ export default function TradeModal({ onClose }: TradeModalProps) {
     resetTransactionState();
     const value = e.target.value.replace(/,/g, "");
 
+    console.log(value);
+
+    if (value.trim() === "") {
+      setBTCAmount("");
+      setUSDAmount("");
+      return;
+    }
+
     if (value.at(-1) === "." || value.at(-1) === "0") {
       setBTCAmount(value);
       return;
@@ -69,6 +77,12 @@ export default function TradeModal({ onClose }: TradeModalProps) {
   const handleUSDAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     resetTransactionState();
     const value = e.target.value.replace(/,/g, "");
+
+    if (value.trim() === "") {
+      setBTCAmount("");
+      setUSDAmount("");
+      return;
+    }
 
     if (value.at(-1) === "." || value.at(-1) === "0") {
       setUSDAmount(value);
