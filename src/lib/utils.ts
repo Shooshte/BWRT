@@ -1,4 +1,5 @@
 export function round(value: number, decimals: number) {
+  // @ts-expect-error - adding e to a number is valid
   return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 }
 
