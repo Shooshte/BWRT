@@ -49,15 +49,13 @@ export default function TradeModal({ onClose }: TradeModalProps) {
     resetTransactionState();
     const value = e.target.value.replace(/,/g, "");
 
-    console.log(value);
-
     if (value.trim() === "") {
       setBTCAmount("");
       setUSDAmount("");
       return;
     }
 
-    if (value.at(-1) === "." || value.at(-1) === "0") {
+    if (value.at(-1) === "." || (value.includes(".") && value.at(-1) === "0")) {
       setBTCAmount(value);
       return;
     }
@@ -84,7 +82,7 @@ export default function TradeModal({ onClose }: TradeModalProps) {
       return;
     }
 
-    if (value.at(-1) === "." || value.at(-1) === "0") {
+    if (value.at(-1) === "." || (value.includes(".") && value.at(-1) === "0")) {
       setUSDAmount(value);
       return;
     }
@@ -105,6 +103,8 @@ export default function TradeModal({ onClose }: TradeModalProps) {
   const USDBalance = useSelector((state: RootState) => state.exchange.USD);
 
   const updateBalance = (tradeData: Trade) => {
+    console.log("tradeData: ", tradeData);
+
     if (tradeData.type === "buy") {
       dispatch(setBTC(round(BTCBalance + tradeData.amount, 8)));
       dispatch(setUSD(round(USDBalance - tradeData.amount * price, 2)));
@@ -134,7 +134,7 @@ export default function TradeModal({ onClose }: TradeModalProps) {
     }
 
     const tradeData: Trade = {
-      amount: Number(BTCAmount),
+      amount: Number(BTCAmount.replace(/,/g, "")),
       id: Date.now().toString(),
       price: price,
       timestamp: Date.now(),
@@ -165,7 +165,7 @@ export default function TradeModal({ onClose }: TradeModalProps) {
     }
 
     const tradeData: Trade = {
-      amount: Number(BTCAmount),
+      amount: Number(BTCAmount.replace(/,/g, "")),
       id: Date.now().toString(),
       price: price,
       timestamp: Date.now(),
