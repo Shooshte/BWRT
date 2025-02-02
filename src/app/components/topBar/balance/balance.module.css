@@ -1,0 +1,11 @@
+.container {
+  font-size: 12px;
+  font-weight: 400;
+  justify-self: flex-end;
+  line-height: 16px;
+  text-align: right;
+}
+
+.container p b {
+  font-weight: 600;
+}

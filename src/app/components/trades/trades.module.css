@@ -1,0 +1,18 @@
+.list {
+  background: #f3f3f3;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  justify-content: space-between;
+}
+
+.value {
+  font-weight: 600;
+}

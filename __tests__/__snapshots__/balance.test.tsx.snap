@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Balance Render correct dom structure 1`] = `
+<div
+  style="height: 100%; width: 100%;"
+>
+  <div
+    class="container undefined"
+  >
+    <p>
+      Available
+    </p>
+    <p>
+      0.11342278
+       
+      <b>
+        BTC
+      </b>
+    </p>
+    <p>
+      225.05
+       
+      <b>
+        $
+      </b>
+    </p>
+  </div>
+</div>
+`;

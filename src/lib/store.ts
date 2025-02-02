@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import chartReducer from "./features/chart/chartSlice";
+import exchangeReducer from "./features/exchange/exchangeSlice";
 import { coingeckoApi } from "./features/chart/coingeckoApi";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      chart: chartReducer,
+      exchange: exchangeReducer,
       [coingeckoApi.reducerPath]: coingeckoApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>

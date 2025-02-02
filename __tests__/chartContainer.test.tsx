@@ -7,35 +7,18 @@ import Chart from "../src/app/components/chart";
 import { Wrapper } from "../src/tests/test-utils";
 
 describe("Chart Container", () => {
-  test("render error message when pingApi request fails", async () => {
-    server.use(
-      http.get(
-        "https://api.coingecko.com/api/v3/ping",
-        () => {
-          return HttpResponse.error();
-        },
-        { once: true }
-      )
-    );
-
-    render(<Chart />, { wrapper: Wrapper });
-    const errorMessage = await screen.findByText("Unable to load coin data.");
-    expect(errorMessage).toBeInTheDocument();
-  });
-
   test("render error message when getHistoricalData request fails", async () => {
     server.use(
       http.get(
         "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart",
         () => {
           return new HttpResponse(null, { status: 500 });
-        },
-        { once: true }
+        }
       )
     );
 
     render(<Chart />, { wrapper: Wrapper });
-    const errorMessage = await screen.findByText("Unable to load coin data.");
+    const errorMessage = await screen.findByText("Unable to load coin price.");
     expect(errorMessage).toBeInTheDocument();
   });
 
@@ -45,13 +28,12 @@ describe("Chart Container", () => {
         "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart",
         () => {
           return HttpResponse.json({});
-        },
-        { once: true }
+        }
       )
     );
 
     render(<Chart />, { wrapper: Wrapper });
-    const errorMessage = await screen.findByText("Unable to load coin data.");
+    const errorMessage = await screen.findByText("Unable to load coin price.");
     expect(errorMessage).toBeInTheDocument();
   });
 });

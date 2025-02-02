@@ -1,14 +1,81 @@
 .error {
   align-items: center;
-  background-color: #f0f0f0;
+  background: #f8d7da;
+  border-radius: 4px;
   color: red;
   display: flex;
   justify-content: center;
   padding: 1rem;
 }
 
-.chartContainer {
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   height: calc(50vh - 2rem);
-  padding: 1rem;
-  width: calc(100% - 2rem);
+  justify-content: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.chartContainer {
+  display: flex;
+  flex-grow: 1;
+  height: calc(50vh - 2rem - 148px);
+  width: 100%;
+}
+
+.priceLabel {
+  background: #29797a;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 0 2px 4px;
+  border-radius: 0 2px 2px 0;
+  width: 42px;
+}
+
+.lastCloseLabel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  border-radius: 4px;
+  width: 130px;
+}
+
+.lastCloseLabel p {
+  background: rgb(62, 190, 191);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.lastCloseLabel p:first-child {
+  border-radius: 2px 0 0 2px;
+}
+
+.lastCloseLabel p:last-child {
+  border-radius: 0 2px 2px 0;
+  text-align: right;
+}
+
+.tooltip {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1px;
+  border-radius: 4px;
+}
+
+.tooltip p {
+  background: rgb(62, 190, 191);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.tooltip p:first-child {
+  border-radius: 2px 0 0 2px;
+}
+
+.tooltip p:last-child {
+  border-radius: 0 2px 2px 0;
 }

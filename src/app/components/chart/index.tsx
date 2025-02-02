@@ -1,53 +1,69 @@
 "use client";
 
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import {
+  useGetCoinPriceQuery,
   useGetHistoricalDataQuery,
-  usePingApiQuery,
 } from "../../../lib/features/chart/coingeckoApi";
 
 import Chart from "./chart";
 import Loader from "../loader";
+import TopBar from "../topBar";
 import styles from "./chart.module.css";
 
 export default function ChartContainer() {
-  const { error: pingError, isLoading: fetchingPing } = usePingApiQuery(
-    undefined,
+  const {
+    data: coinHistory,
+    error: coinHistoryError,
+    isLoading: coinHistoryLoading,
+  } = useGetHistoricalDataQuery(
+    { coinID: "bitcoin", days: 1, vs_currency: "usd" },
     {
-      pollingInterval: 60 * 1000,
-      refetchOnFocus: true,
-      refetchOnMountOrArgChange: true,
-      refetchOnReconnect: true,
+      pollingInterval: 5 * 60 * 1000,
+      refetchOnFocus: false,
+      refetchOnMountOrArgChange: false,
+      refetchOnReconnect: false,
     }
   );
 
-  const { error: coinHistoryError, isFetching: fetchingCoinHistory } =
-    useGetHistoricalDataQuery(
-      { coinID: "bitcoin", days: 1, vs_currency: "usd" },
-      {
-        refetchOnFocus: false,
-        refetchOnMountOrArgChange: false,
-        refetchOnReconnect: false,
-      }
-    );
-
-  const isFetching = useMemo(
-    () => fetchingCoinHistory || fetchingPing,
-    [fetchingCoinHistory, fetchingPing]
+  const {
+    data: coinPrice,
+    error: coinPriceError,
+    isLoading: coinPriceLoading,
+  } = useGetCoinPriceQuery(
+    {
+      ids: "bitcoin",
+      include_last_updated_at: true,
+      vs_currencies: "usd",
+      precision: 2,
+    },
+    {
+      pollingInterval: 60 * 1000,
+    }
   );
 
-  const error = useMemo(
-    () => !!coinHistoryError || !!pingError,
-    [pingError, coinHistoryError]
-  );
+  const isLoading = useMemo(() => {
+    return coinPriceLoading || coinHistoryLoading;
+  }, [coinPriceLoading, coinHistoryLoading]);
 
-  return isFetching ? (
-    <Loader />
-  ) : error ? (
-    <div className={styles.error}>Unable to load coin data.</div>
-  ) : (
-    <main className={styles.chartContainer}>
-      <Chart />
-    </main>
+  const error = useMemo(() => {
+    return !!coinHistoryError || !!coinPriceError;
+  }, [coinHistoryError, coinPriceError]);
+
+  return (
+    <section className={styles.container}>
+      {isLoading ? (
+        <Loader />
+      ) : error ? (
+        <div className={styles.error}>Unable to load coin price.</div>
+      ) : (
+        <>
+          <TopBar />
+          <div className={styles.chartContainer}>
+            <Chart coinHistory={coinHistory} coinPrice={coinPrice} />
+          </div>
+        </>
+      )}
+    </section>
   );
 }
