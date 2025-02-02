@@ -58,7 +58,6 @@ export default function ChartContainer() {
         <div className={styles.error}>Unable to load coin price.</div>
       ) : (
         <>
-          <TopBar />
           <div className={styles.chartContainer}>
             <Chart coinHistory={coinHistory} coinPrice={coinPrice} />
           </div>
