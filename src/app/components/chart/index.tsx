@@ -8,7 +8,6 @@ import {
 
 import Chart from "./chart";
 import Loader from "../loader";
-import TopBar from "../topBar";
 import styles from "./chart.module.css";
 
 export default function ChartContainer() {
