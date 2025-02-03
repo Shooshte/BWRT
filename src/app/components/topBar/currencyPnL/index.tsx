@@ -3,7 +3,7 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../lib/store";
-import { round } from "../../../../lib/utils";
+import { formatCurrency, round } from "../../../../lib/utils";
 import { useGetCoinPriceQuery } from "../../../../lib/features/chart/coingeckoApi";
 
 import styles from "./currency.module.css";
@@ -51,7 +51,9 @@ export default function CurrencyPnL({ className }: Props) {
   return (
     <div className={`${styles.container} ${className}`}>
       <p className={styles.currencyText}>BTC</p>
-      <p className={styles.currencyText}>{price} &nbsp;&#36;</p>
+      <p className={styles.currencyText}>
+        {formatCurrency(price || 0)}&nbsp;&#36;
+      </p>
       <p className={styles.pnlText}>
         PnL:{" "}
         <span className={`${inProfit ? styles.inProfit : styles.inLoss}`}>
