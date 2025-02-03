@@ -57,7 +57,7 @@ export default function CurrencyPnL({ className }: Props) {
       <p className={styles.pnlText}>
         PnL:{" "}
         <span className={`${inProfit ? styles.inProfit : styles.inLoss}`}>
-          {inProfit ? `+ ${PnL}` : PnL}
+          {inProfit ? `+ ${formatCurrency(PnL)}` : formatCurrency(PnL)}
         </span>
         &nbsp;&#36;
       </p>
