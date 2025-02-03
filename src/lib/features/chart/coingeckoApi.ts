@@ -81,8 +81,4 @@ export const coingeckoApi = createApi({
   }),
 });
 
-// https://api.coingecko.com/api/v3/api/simple.price?ids=bitcoin&vs_currencies=usd&precision=2
-
-// https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&precision=2
-
 export const { useGetCoinPriceQuery, useGetHistoricalDataQuery } = coingeckoApi;
