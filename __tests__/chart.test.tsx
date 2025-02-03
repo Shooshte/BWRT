@@ -870,9 +870,16 @@ describe("Chart", () => {
       ],
     };
 
+    const COIN_PRICE = {
+      bitcoin: {
+        usd: 95447,
+        last_updated_at: 1738242795010,
+      },
+    };
+
     const { container } = render(
       <div style={{ height: "100%", width: "100%" }}>
-        <Chart coinHistory={COIN_HISTORY} />
+        <Chart coinHistory={COIN_HISTORY} coinPrice={COIN_PRICE} />
       </div>,
       { wrapper: Wrapper }
     );
