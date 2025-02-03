@@ -103,8 +103,6 @@ export default function TradeModal({ onClose }: TradeModalProps) {
   const USDBalance = useSelector((state: RootState) => state.exchange.USD);
 
   const updateBalance = (tradeData: Trade) => {
-    console.log("tradeData: ", tradeData);
-
     if (tradeData.type === "buy") {
       dispatch(setBTC(round(BTCBalance + tradeData.amount, 8)));
       dispatch(setUSD(round(USDBalance - tradeData.amount * price, 2)));
@@ -177,7 +175,7 @@ export default function TradeModal({ onClose }: TradeModalProps) {
   };
 
   return (
-    <div className={styles.overlay}>
+    <div className={styles.overlay} data-testid="trade-modal">
       <div className={styles.controls}>
         <button className={styles.closeButton} onClick={onClose}>
           <Image src={CloseIcon} alt="Close" />
