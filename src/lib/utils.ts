@@ -4,24 +4,38 @@ export function round(value: number, decimals: number) {
 }
 
 export function formatCurrency(value: number) {
-  if (value % 1 === 0) {
-    return value.toString();
-  }
-
   const [integer, decimal] = value.toString().split(".");
   const cleanedInteger = integer.replace("-", "");
 
+  const start = cleanedInteger.length % 3;
+
   let integerString = "";
-  for (let i = 0; i < cleanedInteger.length; i++) {
-    if (i !== 0 && i % 3 === 0) {
+
+  if (cleanedInteger.length <= 3) {
+    integerString = cleanedInteger;
+  } else {
+    integerString = cleanedInteger.slice(0, start);
+    if (start > 0) {
       integerString += ",";
     }
-    integerString += cleanedInteger[i];
+    const remainingInteger = cleanedInteger.slice(start, cleanedInteger.length);
+
+    for (let i = 0; i < remainingInteger.length; i++) {
+      if (i % 3 === 0 && i > 0) {
+        integerString += ",";
+      }
+
+      integerString += remainingInteger.at(i);
+    }
   }
 
   if (cleanedInteger.length !== integer.length) {
     integerString = "-" + integerString;
   }
 
-  return `${integerString}.${decimal}`;
+  if (decimal) {
+    return `${integerString}.${decimal}`;
+  }
+
+  return integerString;
 }

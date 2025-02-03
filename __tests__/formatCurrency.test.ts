@@ -26,7 +26,15 @@ const TEST_CASES = [
     input: 24.521525151,
   },
   {
-    expected: "124,5.01",
+    expected: "-7,500",
+    input: -7500,
+  },
+  {
+    expected: "7,500",
+    input: 7500,
+  },
+  {
+    expected: "1,245.01",
     input: 1245.01,
   },
   {
@@ -34,7 +42,7 @@ const TEST_CASES = [
     input: 124525.01,
   },
   {
-    expected: "124,525,52.01",
+    expected: "12,452,552.01",
     input: 12452552.01,
   },
 ];
