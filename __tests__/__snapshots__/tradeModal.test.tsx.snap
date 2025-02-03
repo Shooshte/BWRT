@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TradeModal Render correct DOM elements 1`] = `
+<div
+  class="overlay"
+  data-testid="trade-modal"
+>
+  <div
+    class="controls"
+  >
+    <button
+      class="closeButton"
+      data-testid="trade-modal-close"
+    >
+      <img
+        alt="Close"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </button>
+    <div
+      class="inputContainer"
+    >
+      <input
+        id="btcAmount"
+        type="text"
+        value=""
+      />
+      <label
+        class="currencyLabel"
+        for="btcAmount"
+      >
+        BTC
+      </label>
+    </div>
+    <div
+      class="inputContainer"
+    >
+      <input
+        id="usdAmount"
+        type="text"
+        value=""
+      />
+      <label
+        class="currencyLabel"
+        for="usdAmount"
+      >
+        USD
+      </label>
+    </div>
+    <div
+      class="tradeControls"
+    >
+      <button>
+        Buy
+      </button>
+      <button>
+        Sell
+      </button>
+    </div>
+  </div>
+</div>
+`;

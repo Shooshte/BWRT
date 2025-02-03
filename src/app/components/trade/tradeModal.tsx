@@ -171,13 +171,17 @@ export default function TradeModal({ onClose }: TradeModalProps) {
     };
     dispatch(addTrade(tradeData));
     updateBalance(tradeData);
-    setSuccess(`Sold ${BTCAmount} BTC for ${USDAmount} USD`);
+    setSuccess(`Sold ${BTCAmount} BTC for ${USDAmount} USD.`);
   };
 
   return (
     <div className={styles.overlay} data-testid="trade-modal">
       <div className={styles.controls}>
-        <button className={styles.closeButton} onClick={onClose}>
+        <button
+          className={styles.closeButton}
+          data-testid="trade-modal-close"
+          onClick={onClose}
+        >
           <Image src={CloseIcon} alt="Close" />
         </button>
         {error && <p className={styles.error}>{error}</p>}
