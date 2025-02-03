@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Currency PnL Render correct DOM structure 1`] = `
+<div
+  class="container undefined"
+>
+  <p
+    class="currencyText"
+  >
+    BTC
+  </p>
+  <p
+    class="currencyText"
+  >
+    0
+     $
+  </p>
+  <p
+    class="pnlText"
+  >
+    PnL:
+     
+    <span
+      class="inProfit"
+    >
+      + 760.59
+    </span>
+     $
+  </p>
+</div>
+`;
