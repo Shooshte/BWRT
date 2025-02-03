@@ -1,4 +1,4 @@
-#Task: Build a Crypto Trading Dashboard
+# Task: Build a Crypto Trading Dashboard
 
 Develop a web-based trading app. The app will allow users to view real-time crypto prices,
 analyze trends with charts, and simulate trades for popular cryptocurrencies like Bitcoin
