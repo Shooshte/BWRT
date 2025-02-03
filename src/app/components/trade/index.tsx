@@ -30,11 +30,14 @@ export default function Trade() {
 
   return (
     <>
-      {error || isLoading ? null : (
-        <button className={styles.button} onClick={openModal}>
-          Trade
-        </button>
-      )}
+      <button
+        disabled={!!error || isLoading}
+        className={styles.button}
+        onClick={openModal}
+      >
+        Trade
+      </button>
+
       {isTrading && <TradeModal onClose={closeModal} />}
     </>
   );

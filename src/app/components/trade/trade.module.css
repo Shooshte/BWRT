@@ -2,3 +2,7 @@
   margin-bottom: 1rem;
   width: 100%;
 }
+
+.button:disabled {
+  background-color: rgb(241, 241, 241);
+}
