@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trades Render correct DOM structure 1`] = `
+<ul
+  class="list"
+>
+  <li
+    class="listItem"
+    data-testid="trade-4"
+  >
+    <div>
+      buy
+    </div>
+    <div
+      class="value"
+    >
+      0.00018 BTC / - 191.46 USD
+    </div>
+    <div>
+      6:03:02 PM
+    </div>
+  </li>
+  <li
+    class="listItem"
+    data-testid="trade-7"
+  >
+    <div>
+      sell
+    </div>
+    <div
+      class="value"
+    >
+      - 0.002 BTC / + 2121.34 USD
+    </div>
+    <div>
+      6:03:01 PM
+    </div>
+  </li>
+  <li
+    class="listItem"
+    data-testid="trade-9"
+  >
+    <div>
+      buy
+    </div>
+    <div
+      class="value"
+    >
+      0.001 BTC / - 1063.71 USD
+    </div>
+    <div>
+      6:02:42 PM
+    </div>
+  </li>
+  <li
+    class="listItem"
+    data-testid="trade-3"
+  >
+    <div>
+      buy
+    </div>
+    <div
+      class="value"
+    >
+      0.00017 BTC / - 180.88 USD
+    </div>
+    <div>
+      1:36:35 PM
+    </div>
+  </li>
+  <li
+    class="listItem"
+    data-testid="trade-2"
+  >
+    <div>
+      sell
+    </div>
+    <div
+      class="value"
+    >
+      - 0.00012 BTC / + 129.07 USD
+    </div>
+    <div>
+      1:36:24 PM
+    </div>
+  </li>
+  <li
+    class="listItem"
+    data-testid="trade-1"
+  >
+    <div>
+      buy
+    </div>
+    <div
+      class="value"
+    >
+      0.00015 BTC / - 161.27 USD
+    </div>
+    <div>
+      1:36:22 PM
+    </div>
+  </li>
+  <li
+    class="listItem"
+    data-testid="trade-5"
+  >
+    <div>
+      sell
+    </div>
+    <div
+      class="value"
+    >
+      - 0.0001 BTC / + 107.5 USD
+    </div>
+    <div>
+      1:35:24 PM
+    </div>
+  </li>
+</ul>
+`;

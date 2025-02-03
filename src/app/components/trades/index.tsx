@@ -40,7 +40,7 @@ export default function Trades() {
     <ul className={styles.list}>
       {parsedTrades.map(({ id, time, type, value }) => {
         return (
-          <li className={styles.listItem} key={id}>
+          <li className={styles.listItem} data-testid={`trade-${id}`} key={id}>
             <div>{type}</div>
             <div className={styles.value}>{value}</div>
             <div>{time}</div>
