@@ -9,13 +9,18 @@ export function formatCurrency(value: number) {
   }
 
   const [integer, decimal] = value.toString().split(".");
+  const cleanedInteger = integer.replace("-", "");
 
   let integerString = "";
-  for (let i = 0; i < integer.length; i++) {
+  for (let i = 0; i < cleanedInteger.length; i++) {
     if (i !== 0 && i % 3 === 0) {
       integerString += ",";
     }
-    integerString += integer[i];
+    integerString += cleanedInteger[i];
+  }
+
+  if (cleanedInteger.length !== integer.length) {
+    integerString = "-" + integerString;
   }
 
   return `${integerString}.${decimal}`;

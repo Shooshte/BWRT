@@ -2,6 +2,18 @@ import { formatCurrency } from "../src/lib/utils";
 
 const TEST_CASES = [
   {
+    expected: "-5",
+    input: -5,
+  },
+  {
+    expected: "-565,423.59",
+    input: -565423.59,
+  },
+  {
+    expected: "0",
+    input: 0,
+  },
+  {
     expected: "5",
     input: 5,
   },
