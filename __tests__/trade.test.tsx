@@ -6,7 +6,7 @@ import { http, HttpResponse } from "msw";
 import Trade from "../src/app/components/trade";
 import { Wrapper } from "../src/tests/test-utils";
 
-describe("Currency PnL", () => {
+describe("Trade", () => {
   test("Disable trade button when the price request fails", async () => {
     server.use(
       http.get("https://api.coingecko.com/api/v3/simple/price", () => {
