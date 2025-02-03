@@ -1,4 +1,4 @@
-This is a solution for a coding interview homework assingment. [Task instructions](REQUIREMENTS.md)
+This is a solution for a coding interview homework assingment. [Task instructions](/REQUIREMENTS.MD)
 
 ## Deployed demo
 
